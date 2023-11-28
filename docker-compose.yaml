@@ -18,11 +18,14 @@ services:
       KONG_PG_PASSWORD: "kongpass"
       KONG_PASSWORD: "test"
     command: "kong migrations bootstrap"
+    restart: "on-failure"
 
 
   kong-gateway:
     image: kong/kong-gateway:latest
     command: "kong start"
+    depends_on:
+      - kong-migrations-boostrap
     environment:
       KONG_DATABASE: "postgres"
       KONG_PG_HOST: "kong-database"
