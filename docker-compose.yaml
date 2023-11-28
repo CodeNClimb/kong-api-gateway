@@ -50,8 +50,8 @@ services:
       
 
 networks:
-  default:
-    name: kong-network
+  kong-network:
+    driver: kong-network
     
     
       
