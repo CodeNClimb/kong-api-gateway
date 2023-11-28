@@ -4,6 +4,6 @@ The above project is built for Integration Works to demonstrate Kong API manager
 # Running the container
 - Clone or Download the repository from GitHub
 - Navigate to the location of the yaml file
-- Run *docker-compose up* in the command line to build the container with kong running
+- Run **docker-compose up** in the command line to build the container with kong running
 
 
