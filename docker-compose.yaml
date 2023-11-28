@@ -51,7 +51,7 @@ services:
 
 networks:
   kong-network:
-    driver: kong-network
+    driver: bridge
     
     
       
