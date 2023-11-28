@@ -1,0 +1,32 @@
+Version: "3"
+services:
+
+  networks:
+    default:
+      name: "kong-network"
+      
+  kong-database:
+    image: "postgres:13"
+    ports:
+      - "5432:5432"
+    envioronment:
+      POSTGRES_USER: "kong"
+      POSTGRES_DB: "kong"
+      POSTGRES_PASSWORD: "kongpass"
+    networks:
+      - kong-network
+
+  kong-migrations-boostrap:
+    image: kong/kong-gateway:3.5.0.1   # this line may need to be updated 
+    environment:
+      - KONG_DATABASE: "postgres"
+      - KONG_PG_HOST: "kong-database"
+      - KONG_PG_PASSWORD: "kongpass"
+      - KONG_PASSWORD: "test"
+      
+    
+    
+    
+      
+      
+  
