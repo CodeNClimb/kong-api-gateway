@@ -9,7 +9,7 @@ services:
       POSTGRES_DB: "kong"
       POSTGRES_PASSWORD: "kongpass"
     networks:
-      default: null
+      - kong-network
 
 
   kong-migrations-boostrap:
@@ -20,7 +20,7 @@ services:
       KONG_PG_PASSWORD: "kongpass"
       KONG_PASSWORD: "test"
     networks:
-      default: null
+      - kong-network
 
   kong-gateway:
     image: kong/kong-gateway
@@ -47,7 +47,7 @@ services:
       - "8004:8004"
 
     networks:
-      default: null
+      - kong-network
       
 
 networks:
