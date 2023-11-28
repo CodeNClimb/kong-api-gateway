@@ -8,9 +8,10 @@ services:
       POSTGRES_USER: "kong"
       POSTGRES_DB: "kong"
       POSTGRES_PASSWORD: "kongpass"
+    restart: always
 
 
-  kong-migrations-boostrap:
+  kong-migrations-bootstrap:
     image: kong/kong-gateway:latest  # this line may need to be updated
     environment:
       KONG_DATABASE: "postgres"
@@ -19,13 +20,17 @@ services:
       KONG_PASSWORD: "test"
     command: "kong migrations bootstrap"
     restart: "on-failure"
+    container_name: kong-migrations-bootstrap
+    hostname: kong-migrations-bootstrap
 
 
   kong-gateway:
     image: kong/kong-gateway:latest
     command: "kong start"
+    hostname: kong-gateway
+    container_name: kong-gateway
     depends_on:
-      - kong-migrations-boostrap
+      - kong-migrations-bootstrap
     environment:
       KONG_DATABASE: "postgres"
       KONG_PG_HOST: "kong-database"
@@ -35,7 +40,7 @@ services:
       KONG_ADMIN_ACCESS_LOG: "/dev/stdout"
       KONG_PROXY_ERROR_LOG: "/dev/stderr"
       KONG_ADMIN_ERROR_LOG: "/dev/stderr"
-      KONG_ADMIN_LISTEN: "0.0.0.0:8001"
+      KONG_ADMIN_LISTEN: "0.0.0.0:8001, 0.0.0.0:8444 ssl"
       KONG_ADMIN_GUI_URL: "http://localhost:8002"
 
     ports:
