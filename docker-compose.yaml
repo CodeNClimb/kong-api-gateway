@@ -12,7 +12,7 @@ services:
       - kong-network
 
   kong-migrations-boostrap:
-    image: kong/kong-gateway:3.5.0.1   # this line may need to be updated 
+    image: kong/kong-gateway  # this line may need to be updated
     environment:
       KONG_DATABASE: "postgres"
       KONG_PG_HOST: "kong-database"
@@ -22,7 +22,7 @@ services:
       - kong-network
 
   kong-gateway:
-    image: kong/kong-gateway:3.5.0.1
+    image: kong/kong-gateway
     environment:
       KONG_DATABASE: "postgres"
       KONG_PG_HOST: "kong-database"
