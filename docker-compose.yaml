@@ -22,8 +22,8 @@ services:
     restart: "on-failure"
     container_name: kong-migrations-bootstrap
     hostname: kong-migrations-bootstrap
-    depends_on:
-      - postgres
+   # depends_on:
+    #  - postgres
 
 
   kong-gateway:
