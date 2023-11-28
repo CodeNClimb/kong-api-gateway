@@ -19,12 +19,12 @@ services:
       KONG_PG_HOST: "kong-database"
       KONG_PG_PASSWORD: "kongpass"
       KONG_PASSWORD: "test"
-    command: "kong migrations bootstrap"
+    command: ["kong migrations bootstrap", "kong migrations up"]
 
 
   kong-gateway:
     image: kong/kong-gateway:3.5.0.1
-    command: ["kong start", "kong migrations up"]
+    command: ["kong start"]
     environment:
       KONG_DATABASE: "postgres"
       KONG_PG_HOST: "kong-database"
