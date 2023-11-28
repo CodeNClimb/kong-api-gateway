@@ -1,15 +1,10 @@
-Version: "3"
+version: "3"
 services:
-
-  networks:
-    default:
-      name: "kong-network"
-      
   kong-database:
     image: "postgres:13"
     ports:
       - "5432:5432"
-    envioronment:
+    environment:
       POSTGRES_USER: "kong"
       POSTGRES_DB: "kong"
       POSTGRES_PASSWORD: "kongpass"
@@ -41,20 +36,22 @@ services:
       KONG_ADMIN_GUI_URL: "http://localhost:8002"
 
     ports:
-      - 8000:8000
-      - 8443:8443
-      - 8001:8001
-      - 8444:8444
-      - 8002:8002
-      - 8445:8445
-      - 8003:8003
-      - 8004:8004
+      - "8000:8000"
+      - "8443:8443"
+      - "8001:8001"
+      - "8444:8444"
+      - "8002:8002"
+      - "8445:8445"
+      - "8003:8003"
+      - "8004:8004"
 
     networks:
      - kong-network
       
-      
-    
+
+networks:
+  default:
+    name: kong-network
     
     
       
