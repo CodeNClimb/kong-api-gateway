@@ -8,6 +8,7 @@ services:
       POSTGRES_USER: "kong"
       POSTGRES_DB: "kong"
       POSTGRES_PASSWORD: "kongpass"
+    command: "kong migrations up"
 
 
 
