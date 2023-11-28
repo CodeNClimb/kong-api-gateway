@@ -19,7 +19,7 @@ services:
       KONG_PG_HOST: "kong-database"
       KONG_PG_PASSWORD: "kongpass"
       KONG_PASSWORD: "test"
-    command: ["kong migrations bootstrap", "kong migrations up"]
+    command: "kong migrations bootstrap"
 
 
   kong-gateway:
