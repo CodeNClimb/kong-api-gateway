@@ -2,6 +2,8 @@ version: "3.9"
 services:
   postgres:
     image: "postgres:13"
+    container_name: "kong-database"
+    hostname: kong-gateway
     ports:
       - "5432:5432"
     environment:
