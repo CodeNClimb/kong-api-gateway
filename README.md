@@ -2,11 +2,11 @@
 The above project is built for IntegrationWorks to demonstrate Kong API manager working on a Docker container.
 
 ## Setting up Kong in Docker
-- The project uses docker containers to run Kong. If you are yet to install docker, you may naviagate [here](https://docs.docker.com/get-docker/){:target="_blank"} to find it. Choose the option most appropriate to your operating system. 
+- The project uses docker containers to run Kong. If you are yet to install docker, you may naviagate [here](https://docs.docker.com/get-docker/) to find it. Choose the option most appropriate to your operating system. 
 - Clone or Download the repository from GitHub
 - Navigate to the location of the yaml file
 - Run **docker-compose up** in the command line to build the container with kong running
-- Navigate [here](http://localhost:8002){:target="_blank"} to view the functional Kong Workspace.
+- Navigate [here](http://localhost:8002)to view the functional Kong Workspace.
 
 ## Running KONG MANAGER
 ### Creating a service
